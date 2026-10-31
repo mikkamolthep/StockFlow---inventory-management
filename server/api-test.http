@@ -1,0 +1,21 @@
+### GET all products
+GET http://localhost:3000/api/products
+
+### GET product by ID
+GET http://localhost:3000/api/products/1
+
+### GET product that does not exist
+GET http://localhost:3000/api/products/999
+
+### POST create a new product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Gaming Mouse",
+  "quantity": 15,
+  "price": 890
+}
+
+### DELETE request to delete product
+DELETE http://localhost:3000/api/products/3
