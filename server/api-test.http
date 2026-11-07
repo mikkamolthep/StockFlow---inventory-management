@@ -2,10 +2,16 @@
 GET http://localhost:3000/api/products
 
 ### GET product by ID
-GET http://localhost:3000/api/products/1
+GET http://localhost:3000/api/products/6aeb4edbf307d19caa5c996d
 
 ### GET product that does not exist
 GET http://localhost:3000/api/products/999
+
+### GET product with valid format but not existing
+GET http://localhost:3000/api/products/000000000000000000000000
+
+### GET product with invalid ID format
+GET http://localhost:3000/api/products/abc123
 
 ### POST create a new product
 POST http://localhost:3000/api/products
@@ -15,6 +21,19 @@ Content-Type: application/json
   "name": "Gaming Mouse",
   "quantity": 15,
   "price": 890
+}
+
+### Create Product in MongoDB
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "sku": "SF-001",
+  "name": "Office Chair",
+  "category": "Furniture",
+  "unit": "piece",
+  "quantity": 20,
+  "reorderLevel": 5
 }
 
 ### DELETE request to delete product

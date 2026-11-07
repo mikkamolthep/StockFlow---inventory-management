@@ -1,0 +1,72 @@
+1.อยู่ในโฟลเดอร์ inventory-management
+	- git init
+
+2.สร้างไฟล์ README.md
+
+3.สร้างไฟล์ .gitignore
+	- node_modules/
+	  .env
+	  .env.*
+	  !.env.example
+	  dist/
+	  coverage/
+  	 .DS_Store
+
+4.เข้าโฟลเดอร์ server
+	-  รันคำสั่ง:
+	 - npm init -y
+	( จะได้ package.json )
+
+5. ต้องอยู่ภายในโฟลเดอร์ server
+	- ติดตั้ง Express
+	- npm install express ( package-lock.json)
+
+6 .สร้างโฟลเดอร์ src และไฟล์ server.js
+	- เปิด server/src/server.js
+
+7. เขียนโค้ด
+8. ที่อยู่ในโฟลเดอร์ server แล้วรัน
+	- npm start
+	
+9. เพิ่มคำสั่งสำหรับรัน Server
+	- เปิด server/package.json แล้วเพิ่ม scripts
+	- "scripts": {
+  	  "start": "node src/server.js"
+	  }
+
+10.สร้าง MongoDB เพื่อเก็บข้อมูลจริง
+	- เข้าเว็บไซต์ MongoDB Atlas
+	1. สมัคร Account หรือ Login
+	2. สร้าง Project ชื่อ StockFlow
+	3.สร้าง Database Deployment แบบ Free
+	4.เลือก Region ที่ใกล้ประเทศไทย เช่น Singapore หากมีให้เลือก
+	 -Username::mikkamolthep_db_user
+	 -Password::aBhtfc0YFTdHofmN
+	 -mongodb+srv://<db_username>:aBhtfc0YFTdHofmN@cluster0.kkeilpd.mongodb.net/
+
+11.ติดตั้ง Mongoose
+	-เปิด Terminal ใน VS Code แล้วเข้าโฟลเดอร์ server จากนั้นรันคำสั่ง:
+	 -npm install mongoose
+
+12.สร้างไฟล์เชื่อมต่อ Database สร้างโฟลเดอร์ config ภายใน src แล้วสร้างไฟล์ db.js
+	-server/
+	 └── src/
+    	     ├── config/
+   	     │   └── db.js
+    	     └── server.js
+	( ** เขียนโค้ด )
+
+13.ติดตั้ง dotenv เปิด Terminal ในโฟลเดอร์ server แล้วรัน:
+	-npm install dotenv
+
+14.สร้างไฟล์ .env เพื่อเก็บ Connection String สร้างไฟล์ไว้ที่ server/.env
+  -ใส่ข้อมูลใน .env ดังนี้:
+   -MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@cluster0.xxxxx.mongodb.net/stockflow
+    PORT=3000
+   ** เปลี่ยน Connection String ตัวอย่างให้เป็นของจริงจาก MongoDB Atlas
+
+15.แก้ไข server.js เพิ่มการเรียกใช้ dotenv และเชื่อมต่อ Database
+	( ** เขียนโค้ด )
+
+16.สร้าง Product Model เราจะกำหนดโครงสร้างข้อมูล Product ด้วย Mongoose
+	- สร้างไฟล์ :server/src/models/Product.js
